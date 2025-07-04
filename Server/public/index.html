@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AssetBundle maker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="ui">
+      <!-- input oculto -->
+      <input
+        type="file"
+        id="modelInput"
+        accept=".glb,.gltf,.fbx"
+        style="display: none"
+      />
+      <input
+        type="file"
+        id="textureInput"
+        accept=".png,.jpg,.jpeg"
+        style="display: none"
+      />
+      <input
+        type="file"
+        id="iconInput"
+        accept=".png,.jpg,.jpeg"
+        style="display: none"
+      />
+
+      <!-- botón estilizado -->
+      <button id="uploadModelBtn">Upload 3D model</button>
+      <button id="uploadTextureBtn">Upload texture</button>
+      <button id="uploadIconBtn">Upload icon</button>
+
+      <label
+        >Pos X: <input type="number" id="posX" value="0" step="0.1"
+      /></label>
+      <label
+        >Pos Y: <input type="number" id="posY" value="0" step="0.1"
+      /></label>
+      <label
+        >Pos Z: <input type="number" id="posZ" value="0" step="0.1"
+      /></label>
+      <label
+        >Rot X: <input type="number" id="rotX" value="0" step="0.1"
+      /></label>
+      <label
+        >Rot Y: <input type="number" id="rotY" value="0" step="0.1"
+      /></label>
+      <label
+        >Rot Z: <input type="number" id="rotZ" value="0" step="0.1"
+      /></label>
+      <label
+        >Scale: <input type="number" id="scale" value="1" step="0.1"
+      /></label>
+      <label> Flip pos YZ: <input type="checkbox" id="flipaxispos" /></label>
+      <label> Flip rot YZ: <input type="checkbox" id="flipaxisrot" /></label>
+
+      <div id="freeModeContainer">
+        <p>
+          Make sure that models are set to scale 1,1,1 and position 0,0,0 on
+          blender. Recommended to use UnityExplorer to mess with values. (Flip
+          checkboxes doesnt affect on preview)
+        </p>
+        <img id="iconPreview" />
+      </div>
+
+      <button id="uploadBtn">Generate AssetBundle</button>
+    </div>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.178.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
