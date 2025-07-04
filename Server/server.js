@@ -24,7 +24,7 @@ app.post(
       return res.status(400).send("No model file uploaded");
     }
 
-    const unityProject = "A:/Unity Projects/Peakmodding";
+    const unityProject = "PATH TO YOUR UNITY PROJECT";
     function copyToUnity(file) {
       const src = path.resolve(file.path);
       const dest = path.join(unityProject, "Assets/Uploads", file.originalname);
@@ -49,7 +49,7 @@ app.post(
       iconUnityPath ? `"${path.basename(iconUnityPath)}"` : `"undefined"`,
     ].join(" ");
 
-    const unityPath = `"A:/Unity Versions/6000.0.3f1/Editor/Unity.exe"`;
+    const unityPath = `"PATH TO THE UNITY EDITOR EXECUTABLE (Unity.exe)"`;
 
     exec(
       `${unityPath} -batchmode -projectPath "${unityProject}" -executeMethod BatchHatProcessor.ProccessFromCLI ${unityArgs} -quit -logFile server/unity.log`,
